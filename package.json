@@ -1,0 +1,20 @@
+{
+  "name": "xcpc-plugin-codesnap",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "CodeSnap code screenshot plugin for XCPC Workstation, inspired by kufii/CodeSnap.",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1"
+  },
+  "devDependencies": {
+    "@xcpc/plugin-sdk": "https://github.com/lihaoze123/xcpc-plugins/releases/download/official-latest/xcpc-plugin-sdk.tgz",
+    "typescript": "^5.8.0",
+    "vite": "^6.3.0"
+  }
+}

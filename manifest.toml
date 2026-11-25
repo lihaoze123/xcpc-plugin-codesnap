@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=./node_modules/@xcpc/plugin-sdk/manifest.schema.json
+id = "codesnap"
+name = "CodeSnap 代码截图"
+version = "0.1.0"
+description = "以原版 CodeSnap 风格生成高清代码截图，支持多配色主题、渐变/透明背景与一键复制 PNG"
+author = "lihaoze123"
+entry = "index.js"
+ui_entry = "ui.html"
+capabilities = ["tool", "commands"]
+
+[permissions]
+domains = []
+workspace_read = false
+
+[[commands]]
+id = "open"
+title = "打开 CodeSnap 代码截图"
+context = "global"
+
+[[tools]]
+id = "snapshot"
+name = "CodeSnap 代码截图"
+description = "基于原版 CodeSnap 视觉风格，将代码片段实时渲染为高清 PNG 截图。"
+
+[[tools.inputs]]
+name = "code"
+label = "代码片段"
+kind = "multiline"
+default = ""
+required = false
