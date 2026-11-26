@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./node_modules/@xcpc/plugin-sdk/manifest.schema.json
 id = "codesnap"
 name = "CodeSnap 代码截图"
-version = "0.1.0"
+version = "0.2.0"
 description = "以原版 CodeSnap 风格生成高清代码截图，支持多配色主题、渐变/透明背景与一键复制 PNG"
 author = "lihaoze123"
 entry = "index.js"

@@ -1,6 +1,6 @@
 {
   "name": "xcpc-plugin-codesnap",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "CodeSnap code screenshot plugin for XCPC Workstation, inspired by kufii/CodeSnap.",

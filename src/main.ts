@@ -81,28 +81,28 @@ const app = document.getElementById("app")!;
 app.innerHTML = `
   <header class="toolbar">
     <div class="toolbar-group">
-      <label class="field">语言
+      <label class="field" title="代码语言"><span class="field-label">语言</span>
         <select id="sel-lang"></select>
       </label>
-      <label class="field">主题
+      <label class="field" title="配色主题"><span class="field-label">主题</span>
         <select id="sel-theme"></select>
       </label>
-      <label class="field">背景
+      <label class="field" title="卡片背景"><span class="field-label">背景</span>
         <select id="sel-bg"></select>
       </label>
       <input id="inp-custom-bg" type="color" value="#abb8c3" title="自定义背景色" style="display:none;" />
     </div>
     <span class="toolbar-sep"></span>
     <div class="toolbar-group">
-      <label class="field">留白
+      <label class="field" title="外边距留白"><span class="field-label">留白</span>
         <select id="sel-pad">
-          <option value="0">无</option>
+          <option value="0">无留白</option>
           <option value="24">紧凑</option>
-          <option value="48" selected>原版 (3em)</option>
+          <option value="48" selected>原版</option>
           <option value="64">宽松</option>
         </select>
       </label>
-      <label class="field">字号
+      <label class="field" title="代码字号"><span class="field-label">字号</span>
         <select id="sel-font">
           <option value="12">12px</option>
           <option value="13">13px</option>
@@ -111,22 +111,13 @@ app.innerHTML = `
           <option value="18">18px</option>
         </select>
       </label>
-      <label class="field">倍率
+      <label class="field" title="导出倍率"><span class="field-label">倍率</span>
         <select id="sel-scale">
           <option value="1">1x</option>
           <option value="2" selected>2x</option>
           <option value="3">3x</option>
         </select>
       </label>
-    </div>
-    <span class="toolbar-sep"></span>
-    <div class="toolbar-group">
-      <button id="tog-dots" class="toggle-btn active" type="button">圆点</button>
-      <button id="tog-lines" class="toggle-btn active" type="button">行号</button>
-      <button id="tog-round" class="toggle-btn active" type="button">圆角</button>
-      <button id="tog-shadow" class="toggle-btn active" type="button">阴影</button>
-      <button id="tog-title" class="toggle-btn" type="button">标题</button>
-      <input id="inp-title" type="text" placeholder="main.cpp" style="width:110px;display:none;" />
     </div>
     <div class="toolbar-spacer"></div>
     <div class="toolbar-group">
@@ -145,6 +136,16 @@ app.innerHTML = `
     </section>
 
     <section class="preview-pane">
+      <div class="pane-bar">
+        <div class="preview-controls">
+          <button id="tog-dots" class="toggle-btn active" type="button">圆点</button>
+          <button id="tog-lines" class="toggle-btn active" type="button">行号</button>
+          <button id="tog-round" class="toggle-btn active" type="button">圆角</button>
+          <button id="tog-shadow" class="toggle-btn active" type="button">阴影</button>
+          <button id="tog-title" class="toggle-btn" type="button">标题</button>
+          <input id="inp-title" type="text" placeholder="main.cpp" style="width:110px;display:none;" />
+        </div>
+      </div>
       <div class="stage">
         <div id="canvas-frame" class="canvas-frame">
           <canvas id="preview-canvas"></canvas>
@@ -460,6 +461,9 @@ btnShutter.addEventListener("click", (e) => {
 // Initial render + restore saved preferences
 syncControlsFromState();
 scheduleRender();
+if (typeof document.fonts?.ready?.then === "function") {
+  void document.fonts.ready.then(() => scheduleRender());
+}
 
 if (xcpc) {
   void xcpc.storage
