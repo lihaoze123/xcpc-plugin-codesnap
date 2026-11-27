@@ -13,7 +13,7 @@
     "highlight.js": "^11.11.1"
   },
   "devDependencies": {
-    "@xcpc/plugin-sdk": "https://github.com/lihaoze123/xcpc-plugins/releases/download/official-latest/xcpc-plugin-sdk.tgz",
+    "@xcpc-workstation/plugin-sdk": "^0.2.0",
     "typescript": "^5.8.0",
     "vite": "^6.3.0"
   }

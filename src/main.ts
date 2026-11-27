@@ -1,4 +1,4 @@
-import { getXcpc, type XcpcBridge } from "@xcpc/plugin-sdk/ui";
+import { getXcpc, type XcpcBridge } from "@xcpc-workstation/plugin-sdk/ui";
 import { detectLanguageFromFilename, LANGUAGES } from "./highlighter";
 import { renderSnapshotToCanvas, type SnapshotConfig } from "./renderer";
 import { BACKGROUND_PRESETS, CODE_THEMES } from "./themes";

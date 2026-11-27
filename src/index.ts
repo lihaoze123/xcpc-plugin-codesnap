@@ -1,4 +1,4 @@
-import type { PluginCommandAction, ToolExecutionResult } from "@xcpc/plugin-sdk/host";
+import type { PluginCommandAction, ToolExecutionResult } from "@xcpc-workstation/plugin-sdk/host";
 
 export function runCommand(
   commandId: string,
